@@ -44,10 +44,12 @@ console.log(printStudentStatus(3.80))
 
 // Loop from 0 to 99 and output the numbers that are multiples of 3. Do not use
 // conditional statements. IE: 0, 3, 6, 9, 12, etc...
-
-for (var i = 0; i <= 99; i++) {
-  console.log(i * 3)
+function loopMultiplesOf (num) {
+  for (var i = 0; i <= 99; i++) {
+    console.log(i * num)
+  }
 }
+loopMultiplesOf(3)
 
 // In programming, dates are calculated by counting the number of milliseconds
 // since the epoch. The epoch was midnight January 1st, 1970. The number of
@@ -62,6 +64,14 @@ for (var i = 0; i <= 99; i++) {
 // the timestamp is cleanly divisible by 100. In other words, the time will
 // be printed continuously until we find a time that has milliseconds of 00.
 
+function divideTime () {
+  while (time % 100 !== 0) {
+    var time = new Date().valueOf()
+    console.log(time)
+  }
+}
+divideTime()
+
 // Leap years are defined as being a year that is divisible by 4, except for
 // years which are divisible by 100 and not divisible 400.
 // For example:
@@ -73,6 +83,22 @@ for (var i = 0; i <= 99; i++) {
 // 1. Write out pseudocode that describes the process you would need to go through to
 // complete this requirement.
 // 2. Translate the pseudocode into real JavaScript that accomplishes the requirement.
+
+// first I need to create a loop from the year 0 to 2020
+// second I ned to filter the year that divisible by 4, except for
+// years which are divisible by 100 and not divisible 400.
+function findLeapYear () {
+  var leapYearsArr = []
+  for (var i = 1600; i <= 2020; i++) {
+    if (i % 4 === 0 && i % 100 !== 0) {
+      leapYearsArr.push(i)
+    } else if (i % 4 === 0 && i % 100 === 0 && i % 400 === 0) {
+      leapYearsArr.push(i)
+    }
+  }
+  return leapYearsArr
+}
+console.log(findLeapYear())
 
 // A result variable has been declared for you, as well as a function named half.
 // Call the half function with the number 100 and store the result in the result variable.
